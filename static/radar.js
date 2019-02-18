@@ -1,5 +1,4 @@
-/* A radar element of the UI                              *
- *  - elem is the DOM node representing the radar element */
+/* Add the styles to an element to make it a circular shape */
 function circle_style(elem, radius)
 {
     elem.style.borderRadius = radius.toString() + "px";
@@ -7,6 +6,8 @@ function circle_style(elem, radius)
     elem.style.height       = (radius * 2).toString()+"px";
 }
 
+/* A radar element of the UI                              *
+ *  - elem is the DOM node representing the radar element */
 function Radar(elem)
 {
     this.elem = elem;
@@ -18,7 +19,7 @@ function Radar(elem)
         this.radius = radius
         circle_style(elem, radius);
 
-        for (var angle=0; angle < Math.PI; angle += Math.PI / 6)
+        for (var angle=0; angle < Math.PI - 0.01; angle += Math.PI / 6)
         {
             this.add_radial(angle);
         }
@@ -30,7 +31,7 @@ function Radar(elem)
     }
 
     /* Make a blip appear on the radar                                    *
-     *  - angle is the angle of the blip in radians                       *
+     *  - angle is the angular position of the blip in radians            *
      *  - radius is the distance from the origin of the blip (0.0 to 1.0) *
      *  - size is the size of the blip (0.0 to 1.0)                       */
     this.blip = function(angle, radius, size)
@@ -39,6 +40,8 @@ function Radar(elem)
         blip.init(angle, radius, size);
     }
 
+    /* Add a radial line to the radar display *
+     *  - the angle of the line (rads)        */
     this.add_radial = function(angle)
     {
         var elem = document.createElement("div");
@@ -51,6 +54,8 @@ function Radar(elem)
         this.elem.appendChild(elem);
     }
 
+    /* Add a circular line to the radar display  *
+     *  - the radius to add the line to (0 to 1) */
     this.add_circular = function(radius)
     {
         var elem = document.createElement("div");
@@ -64,9 +69,16 @@ function Radar(elem)
     }
 }
 
+/* A blip on the radar                            *
+ *  - radar is the Radar() where we want the blip */
 function Blip(radar)
 {
     this.radar = radar;
+
+    /* Initialize the blip *
+     *  - angle is the angular position of the blip in radians *
+     *  - radius is the radial position of the blip (0 to 1)   *
+     *  - size is the size of the blip (0 to 1)                */
     this.init = function(angle, radius, size)
     {
         this.elem = document.createElement("div");
@@ -86,12 +98,14 @@ function Blip(radar)
         this.elem.style.display = "block";
     }
 
+    /* Get the offset of the blip from its parent element in pixels */
     this.get_xpos = function(angle, radius, size)
     {
         var centre = Math.cos(angle) * radius * this.radar.radius;
         return (centre - this.radius) + this.radar.radius;
     }
 
+    /* Get the offset of the blip from its parent element in pixels */
     this.get_ypos = function(angle, radius, size)
     {
         var centre = - Math.sin(angle) * radius * this.radar.radius;
@@ -99,14 +113,17 @@ function Blip(radar)
         return (centre - this.radius) + this.radar.radius;
     }
 
+    /* Cause this blip to start fading away to nothing */
     this.fade = function()
     {
         this.elem.style.transform = "scale(0)";
     }
 
+    /* Cause this blip to stop existing */
     this.kill = function()
     {
         this.radar.elem.removeChild(this.elem);
     }
 }
+
 
