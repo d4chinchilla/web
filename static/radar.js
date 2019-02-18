@@ -109,7 +109,6 @@ function Blip(radar)
     this.get_ypos = function(angle, radius, size)
     {
         var centre = - Math.sin(angle) * radius * this.radar.radius;
-        console.log(angle, centre);
         return (centre - this.radius) + this.radar.radius;
     }
 

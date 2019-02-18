@@ -29,11 +29,23 @@
 .radar > .circular ~ .circular { background-color: transparent; }
 
 .log {
-    overflow-y: scroll;
-    display:  grid;
+	display: inline-block;
+	overflow: auto;
+	height: 400px;
 }
 
-.log-table {
+.log-table th {
+	padding: 10px;
+	background-color: #335;
+	color: white;
+	font-style: bold;
+}
+
+.log-table td {
+	background-color: #559;
+	color: white;
+	padding: 2px;
+	border: 1px solid #335;
 }
 
 .log-row {
