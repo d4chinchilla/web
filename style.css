@@ -1,0 +1,52 @@
+.radar {
+    background-color: #335;
+    position: relative;
+}
+
+.blip {
+    background-color: #ff7;
+    transition: transform 2s;
+    position: absolute;
+    display: none;
+}
+
+/* The radial lines on the radar */
+.radar > .radial {
+    background-color: #fff;
+    height: 1px;
+    position: absolute;
+}
+
+/* The circular lines on the radar */
+.radar > .circular {
+    border: 1px solid #fff;
+    position: absolute;
+    background-color: #335;
+}
+
+/* The first circle has a solid background to block the middle, but the *
+ * others are all transparent                                           */
+.radar > .circular ~ .circular { background-color: transparent; }
+
+.log {
+	display: inline-block;
+	overflow: auto;
+	height: 400px;
+}
+
+.log-table th {
+	padding: 10px;
+	background-color: #335;
+	color: white;
+	font-style: bold;
+}
+
+.log-table td {
+	background-color: #559;
+	color: white;
+	padding: 2px;
+	border: 1px solid #335;
+}
+
+.log-row {
+}
