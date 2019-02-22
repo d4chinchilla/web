@@ -29,6 +29,9 @@ if($goodFile == 0) {
 			$extFirmware->extractTo('fwExtract/');
 			$extFirmware->close();
 			echo nl2br("Firmware successfully extracted.");
+			$command = escapeshellcmd('fwExtract/installationScripts/install.py');
+			$output = shell_exec($command);
+			echo $output;
 		} else {
 			echo nl2br("Firmware extraction failed.");
 		}	
