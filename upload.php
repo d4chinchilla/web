@@ -3,7 +3,7 @@ ini_set('display_errors', 'On');
 error_reporting(E_ALL | E_STRICT);
 
 $target_dir = "uploads/";
-$target_file = $target_dir . "firmware.jpg";
+$target_file = $target_dir . "firmware.zip";
 
 $goodFile = 1;
 
@@ -14,8 +14,8 @@ if($_FILES["fileToUpload"]["size"] > 1000000) {
 	$goodFile = 0;
 }
 
-if($fileType != "jpg") {
-	echo nl2br("Incorrect file type, please upload .jpg only. \n" );
+if($fileType != "zip") {
+	echo nl2br("Incorrect file type, please upload .zip only. \n" );
 	$goodFile = 0;
 }
 
@@ -24,6 +24,14 @@ if($goodFile == 0) {
 }else{
 	if(move_uploaded_file($_FILES["fileToUpload"]["tmp_name"],$target_file)) {
 		echo nl2br("The file " . basename($_FILES["fileToUpload"]["name"]). " has been uploaded. \n Redirecting...");
+		$extFirmware = new ZipArchive;
+		if($extFirmware->open('uploads/firmware.zip') == TRUE) {
+			$extFirmware->extractTo('/home/pi/D4/fwExtract/');
+			$extFirmware->close();
+			echo nl2br("Firmware successfully extracted.");
+		} else {
+			echo nl2br("Firmware extraction failed.");
+		}	
 	} else {
 		echo nl2br("Sorry, error uploading file, please try again. \n Redirecting...");
 	}

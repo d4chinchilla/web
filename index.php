@@ -20,6 +20,7 @@
     </head>
     <body>
         <?php ini_set('display_errors', 'On'); error_reporting(E_ALL | E_STRICT); ?>
+	<!-- <?php phpinfo();?> -->
 	<form action="upload.php" method="post" enctype="multipart/form-data">
     		Select firmware to upload:
     		<input type="file" name="fileToUpload" id="fileToUpload">
