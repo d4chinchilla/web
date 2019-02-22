@@ -26,7 +26,7 @@ if($goodFile == 0) {
 		echo nl2br("The file " . basename($_FILES["fileToUpload"]["name"]). " has been uploaded. \n Redirecting...");
 		$extFirmware = new ZipArchive;
 		if($extFirmware->open('uploads/firmware.zip') == TRUE) {
-			$extFirmware->extractTo('/home/pi/D4/fwExtract/');
+			$extFirmware->extractTo('fwExtract/');
 			$extFirmware->close();
 			echo nl2br("Firmware successfully extracted.");
 		} else {
