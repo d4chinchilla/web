@@ -23,7 +23,7 @@
                     },
                     axisY: {
                         title: "Magnitude (dB)",
-                    }
+                    },
                     data: [
                         {
                             type: "line",
