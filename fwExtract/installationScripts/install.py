@@ -1,2 +1,3 @@
 #!/usr/bin/env python
-system.os("ls")
+import os
+os.system("ls")
