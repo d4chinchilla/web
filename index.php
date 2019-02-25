@@ -10,7 +10,7 @@
             window.onload = function()
             {
                 var chart = new CanvasJS.Chart("chartContainer", {
-                    interactivityEnabled: false
+                    //interactivityEnabled: false
                     data: [
                         {
                             type: "column",
