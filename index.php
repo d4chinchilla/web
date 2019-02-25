@@ -16,7 +16,7 @@
                     title: {
                         text: "Amplitude Response"
                     },
-                    axisX {
+                    axisX: {
                         logarithmic: true,
                         title: "Frequency (Hz)",
                         minimum: 1
