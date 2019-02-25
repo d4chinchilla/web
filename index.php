@@ -20,7 +20,7 @@
                         logarithmic: true,
                         title: "Frequency (Hz)",
                         minimum: 1,
-                        interval: 10
+                        maximum: 10000
                     },
                     axisY: {
                         title: "Magnitude (dB)"
