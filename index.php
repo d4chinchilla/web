@@ -24,6 +24,15 @@
                     axisY: {
                         title: "Magnitude (dB)",
                     }
+                    data: [
+                        {
+                            type: "line",
+                            dataPoints: [
+                                {x: 1, y: 10},
+                                {x: 10, y: 1}
+                            ]
+                        }
+                    ]
                 });
                 chart.render();
                 var radar = new Radar(document.getElementById("ui-radar"));
