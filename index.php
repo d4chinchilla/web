@@ -54,7 +54,7 @@
     		<input type="file" name="fileToUpload" id="fileToUpload">
     		<input type="submit" value="Upload Firmware" name="submit">
 	</form>
-    <div id="chartContainer" style="height: 500px; width: 50%;"></div>
+    <div id="chartContainer" style="height: 200px; width: 200%;"></div>
 	<div id="ui">
             <div id="ui-radar" class="radar">
             </div>
