@@ -22,7 +22,7 @@
                         minimum: 1
                     },
                     axisY: {
-                        title: "Magnitude (dB)",
+                        title: "Magnitude (dB)"
                     },
                     data: [
                         {
