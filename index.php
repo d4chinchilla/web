@@ -5,6 +5,8 @@
         <link rel="stylesheet" href="style.css">
         <script src="radar.js"></script>
         <script src="log.js"></script>
+        <!-- Include Plotly -->
+        <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
         <script>
             window.onload = function()
             {
@@ -26,6 +28,7 @@
     		<input type="file" name="fileToUpload" id="fileToUpload">
     		<input type="submit" value="Upload Firmware" name="submit">
 	</form>
+    <div id="plot"></div>
 	<div id="ui">
             <div id="ui-radar" class="radar">
             </div>
@@ -45,5 +48,14 @@
                 </table>
             </div>
         </div>
+    <script>
+        var trace = {
+            x: [1, 2, 3, 4, 5]
+            y: [1, 4, 9, 16, 25]
+            mode: 'line'
+        };
+        var data = [ trace ];
+            Plotly.newPlot('plot', data);
+    </script>
     </body>
 </html>
