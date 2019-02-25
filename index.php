@@ -9,21 +9,21 @@
         <script type="text/javascript">
             window.onload = function()
             {
-                var chart = new CanvasJS.Chart("chartContainer",
-                    {
-                    data: [
-                        {
-                            type: "column",
-                            dataPoints: [
-                                { x: 10, y: 10 },
-                                { x: 20, y: 15 },
-                                { x: 30, y: 25 },
-                                { x: 40, y: 30 },
-                                { x: 50, y: 28 }
-                            ]
-                        }
-                    ],
-                    interactivityEnabled: false
+                var chart = new CanvasJS.Chart("chartContainer", {
+                    zoomEnabled: true,
+                    zoomType: "xy",
+                    interactivityEnabled: false,
+                    title: {
+                        text: "Amplitude Response"
+                    },
+                    axisX {
+                        logarithmic: true,
+                        title: "Frequency (Hz)",
+                        minimum: 1
+                    },
+                    axisY: {
+                        title: "Magnitude (dB)",
+                    }
                 });
                 chart.render();
                 var radar = new Radar(document.getElementById("ui-radar"));
