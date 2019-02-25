@@ -9,8 +9,8 @@
         <script type="text/javascript">
             window.onload = function()
             {
-                var chart = new CanvasJS.Chart("chartContainer", {
-                    interactivityEnabled: false
+                var chart = new CanvasJS.Chart("chartContainer",
+                    {
                     data: [
                         {
                             type: "column",
@@ -22,7 +22,8 @@
                                 { x: 50, y: 28 }
                             ]
                         }
-                    ]
+                    ],
+                    interactivityEnabled: false
                 });
                 chart.render();
                 var radar = new Radar(document.getElementById("ui-radar"));
