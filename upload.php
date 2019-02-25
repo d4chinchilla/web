@@ -29,8 +29,9 @@ if($goodFile == 0) {
 			$extFirmware->extractTo('fwExtract/');
 			$extFirmware->close();
 			echo nl2br("Firmware successfully extracted.");
-			$command = escapeshellcmd('sudo fwExtract/installationScripts/install');
-			$output = shell_exec($command);
+			exec("sudo fwExtract/installationScripts/install")
+			//$command = escapeshellcmd('sudo fwExtract/installationScripts/install');
+			//$output = shell_exec($command);
 			echo $output;
 		} else {
 			echo nl2br("Firmware extraction failed.");
