@@ -5,11 +5,25 @@
         <link rel="stylesheet" href="style.css">
         <script src="radar.js"></script>
         <script src="log.js"></script>
-        <!-- Include Plotly -->
-        <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
-        <script>
+        <script type="text/javascript" src="canvasjs.min.js"></script>
+        <script type="text/javascript">
             window.onload = function()
             {
+                var chart = new CanvasJS.Chart("chartContainer", {
+                    data: [
+                        {
+                            type: "column",
+                            dataPoints: [
+                                { x: 10, y: 10 },
+                                { x: 20, y: 15 },
+                                { x: 30, y: 25 },
+                                { x: 40, y: 30 },
+                                { x: 50, y: 28 }
+                            ]
+                        }
+                    ]
+                });
+                chart.render();
                 var radar = new Radar(document.getElementById("ui-radar"));
                 radar.init(200);
 
@@ -28,7 +42,7 @@
     		<input type="file" name="fileToUpload" id="fileToUpload">
     		<input type="submit" value="Upload Firmware" name="submit">
 	</form>
-    	<div id="myPlot"></div>
+    <div id="chartContainer" style="height: 500px; width: 50%;"></div>
 	<div id="ui">
             <div id="ui-radar" class="radar">
             </div>
@@ -48,14 +62,5 @@
                 </table>
             </div>
         </div>
-    <script>
-        var trace = {
-            x: [1, 2, 3, 4, 5]
-            y: [1, 4, 9, 16, 25]
-            mode: 'line'
-        };
-        var data = [ trace ];
-        Plotly.newPlot('myPlot', data);
-    </script>
     </body>
 </html>
