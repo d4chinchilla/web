@@ -1,1 +1,3 @@
 ls
+cd /var/www/html/fwExtract/
+cp test_binary.bin /media/pi/NODE_F303RE
