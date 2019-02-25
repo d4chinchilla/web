@@ -28,7 +28,7 @@
     		<input type="file" name="fileToUpload" id="fileToUpload">
     		<input type="submit" value="Upload Firmware" name="submit">
 	</form>
-    <div id="plot"></div>
+    	<div id="myPlot"></div>
 	<div id="ui">
             <div id="ui-radar" class="radar">
             </div>
@@ -55,7 +55,7 @@
             mode: 'line'
         };
         var data = [ trace ];
-            Plotly.newPlot('plot', data);
+        Plotly.newPlot('myPlot', data);
     </script>
     </body>
 </html>
