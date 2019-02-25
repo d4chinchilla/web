@@ -10,8 +10,8 @@
             window.onload = function()
             {
                 var chart = new CanvasJS.Chart("chartContainer", {
-                    zoomEnabled: true,
-                    zoomType: "xy",
+                    //zoomEnabled: true,
+                    //zoomType: "xy",
                     interactivityEnabled: false,
                     title: {
                         text: "Amplitude Response"
