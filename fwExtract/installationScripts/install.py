@@ -1,2 +1,3 @@
 #!/usr/bin/env python
-print("Hello World!")
+import subprocess
+subprocess.run(["ls", "-1"])
