@@ -20,6 +20,7 @@ install()
 {
     echo INSTALLING!
     # Here, put code to verify an install file and install it
+    terminal -e echo Hello!
     cp style.css /home/pi/D4
 }
 
