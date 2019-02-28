@@ -30,8 +30,9 @@ if($goodFile == 0) {
 			$extFirmware->close();
 			echo nl2br("Firmware successfully extracted.");
 			//exec("fwExtract/installationScripts/install");
-			$cmdfilePath = '/tmp/chinchilla-reset';
-            file_put_contents($cmdfilePath,"install");
+			$cmdfilePath = fopen('/tmp/chinchilla-reset','w');
+			fwrite($cmdfilePath,"install");
+			fclose($cmdfilePath);
 		} else {
 			echo nl2br("Firmware extraction failed.");
 		}	
