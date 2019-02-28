@@ -31,7 +31,7 @@ if($goodFile == 0) {
 			echo nl2br("Firmware successfully extracted.");
 			//exec("fwExtract/installationScripts/install");
             echo "Opening";
-			$filePath = fopen("/tmp/chinchilla-reset","w");
+			$filePath = fopen("/tmp/test.txt","w");
 			echo "Writing";
 			fwrite($filePath,"\ninstall\n");
 			echo "Closing";
