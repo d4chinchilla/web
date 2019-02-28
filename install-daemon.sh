@@ -20,7 +20,7 @@ install()
 {
     echo INSTALLING!
     # Here, put code to verify an install file and install it
-    terminal -e echo Hello!
+    lxterminal -e echo Hello!
     cp /var/www/html/style.css /home/pi/D4
 }
 
