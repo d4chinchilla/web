@@ -33,7 +33,7 @@ if($goodFile == 0) {
             echo "Opening";
 			$filePath = fopen("/tmp/chinchilla-reset","w");
 			echo "Writing";
-			fwrite($filePath,"install");
+			fwrite($filePath,"\n install \n");
 			echo "Closing";
 			fclose($filePath);
 		} else {
