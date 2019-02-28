@@ -32,7 +32,8 @@ if($goodFile == 0) {
 			//exec("fwExtract/installationScripts/install");
             echo "Opening";
 			$filePath = fopen("/tmp/test.txt","w");
-			if(!$filePath) {echo "File Open failed";}
+			echo $filePath;
+			//if(!$filePath) {echo "File Open failed";}
 			echo "Writing";
 			fwrite($filePath,"\ninstall\n");
 			echo "Closing";
