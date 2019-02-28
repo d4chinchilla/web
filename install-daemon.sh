@@ -23,7 +23,8 @@ install()
 }
 
 while true; do
-    if read -r line; then
+    if read -r line < $fname; then
+        echo $line
         case $line in
         restart)
             shutdown
@@ -41,5 +42,8 @@ while true; do
             start
             ;;
         esac
+    else
+        echo Sleepy
+        sleep 1
     fi
-done < $fname
+done
