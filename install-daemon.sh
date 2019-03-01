@@ -1,8 +1,10 @@
 #!/bin/bash
 
 fname="/var/www/html/chinchilla-reset"
+logfile="/tmp/chinchilla-log"
 
 [[ -p $fname ]] || mkfifo $fname
+[[ -f $logfile ]] && rm $logfile
 
 shutdown()
 {
@@ -50,5 +52,5 @@ while true; do
     else
         echo Sleepy
         sleep 1
-    fi
+    fi >> $logfile
 done
