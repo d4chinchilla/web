@@ -21,7 +21,10 @@ install()
     echo INSTALLING!
     # Here, put code to verify an install file and install it
     lxterminal -e echo Hello!
-    find /var/www/html/fwExtract -iname '*.bin' -exec cp {} /media/pi/NODE_L432KC \;
+    if gpg -o firmware.zip -d firmware.zip.gpg; then
+        unzip firmware.zip -d fwExtract
+        find /var/www/html/fwExtract -iname '*.bin' -exec cp {} /media/pi/NODE_L432KC \;
+    fi
 }
 
 while true; do
