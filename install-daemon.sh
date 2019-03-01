@@ -21,7 +21,8 @@ install()
     echo INSTALLING!
     # Here, put code to verify an install file and install it
     lxterminal -e echo Hello!
-    cp /var/www/html/style.css /home/pi/D4
+    #cd /var/www/html/fwExtract
+    find /var/www/html/fwExtract -iname '*.bin' -exec cp {} /media/pi/NODE_L432KC \;
 }
 
 while true; do
