@@ -3,7 +3,7 @@ ini_set('display_errors', 'On');
 error_reporting(E_ALL | E_STRICT);
 
 $target_dir = "uploads/";
-$target_file = $target_dir . "firmware.zip";
+$target_file = $target_dir . "firmware.zip.gpg";
 
 $goodFile = 1;
 
@@ -14,7 +14,7 @@ if($_FILES["fileToUpload"]["size"] > 1000000) {
 	$goodFile = 0;
 }
 
-if($fileType != "zip") {
+if($fileType != "zip.gpg") {
 	echo nl2br("Incorrect file type, please upload .zip only. \n" );
 	$goodFile = 0;
 }
@@ -24,23 +24,16 @@ if($goodFile == 0) {
 }else{
 	if(move_uploaded_file($_FILES["fileToUpload"]["tmp_name"],$target_file)) {
 		echo nl2br("The file " . basename($_FILES["fileToUpload"]["name"]). " has been uploaded. \n Redirecting...");
-		$extFirmware = new ZipArchive;
-		if($extFirmware->open('uploads/firmware.zip') == TRUE) {
-			$extFirmware->extractTo('fwExtract/');
-			$extFirmware->close();
-			echo nl2br("Firmware successfully extracted.");
 			//exec("fwExtract/installationScripts/install");
-            echo "Opening";
-			$filePath = fopen("chinchilla-reset","w");
-			echo $filePath;
-			//if(!$filePath) {echo "File Open failed";}
-			echo "Writing";
-			fwrite($filePath,"install\n");
-			echo "Closing";
-			fclose($filePath);
-		} else {
-			echo nl2br("Firmware extraction failed.");
-		}	
+        echo "Opening";
+        $filePath = fopen("chinchilla-reset","w");
+        echo $filePath;
+        //if(!$filePath) {echo "File Open failed";}
+        echo "Writing";
+        fwrite($filePath,"install\n");
+        echo "Closing";
+        fclose($filePath);
+
 	} else {
 		echo nl2br("Sorry, error uploading file, please try again. \n Redirecting...");
 	}
