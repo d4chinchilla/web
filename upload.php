@@ -35,7 +35,7 @@ if($goodFile == 0) {
 			echo $filePath;
 			//if(!$filePath) {echo "File Open failed";}
 			echo "Writing";
-			fwrite($filePath,"\ninstall\n");
+			fwrite($filePath,"install");
 			echo "Closing";
 			fclose($filePath);
 		} else {
