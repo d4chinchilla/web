@@ -23,11 +23,13 @@ install()
     echo INSTALLING!
     # Here, put code to verify an install file and install it
     lxterminal -e echo Hello!
-    gpg -o /var/www/html/uploads/firmware.zip -d /var/www/html/uploads/firmware.zip.gpg
-    if [[ $? ==  0 ]]; then
-	echo Unzipping!    
+
+    if gpg -o /var/www/html/uploads/firmware.zip -d /var/www/html/uploads/firmware.zip.gpg; then
+	    echo Unzipping!
         unzip /var/www/html/uploads/firmware.zip -d /var/www/html/fwExtract 2>file
         find /var/www/html/fwExtract -iname '*.bin' -exec cp {} /media/pi/NODE_L432KC \;
+    else
+        echo Incorrectly signed file!
     fi
 }
 
