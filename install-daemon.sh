@@ -27,7 +27,8 @@ install()
     if ! gpg -o /var/www/html/uploads/firmware.zip -d /var/www/html/uploads/firmware.zip.gpg; then
 	    echo Unzipping!
         unzip /var/www/html/uploads/firmware.zip -d /var/www/html/fwExtract 2>file
-        find /var/www/html/fwExtract -iname '*.bin' -exec cp {} /media/pi/NODE_L432KC \;
+        echo Extracting!
+        find /var/www/html/fwExtract -iname '*.bin' -exec cp {} /media/pi/NODE_L432KC1 \;
     else
         echo Incorrectly signed file!
     fi
