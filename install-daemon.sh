@@ -52,5 +52,5 @@ while true; do
     else
         echo Sleepy
         sleep 1
-    fi
-done > $logfile
+    fi >> $logfile
+done
