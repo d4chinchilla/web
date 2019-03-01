@@ -1,6 +1,6 @@
 #!/bin/bash
 
-fname="/var/www/html/chinchilla-reset"
+fname="/var/www/html/chinchilla-reset.txt"
 
 [[ -p $fname ]] || mkfifo $fname
 
