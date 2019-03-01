@@ -15,7 +15,7 @@ if($_FILES["fileToUpload"]["size"] > 1000000) {
 }
 
 if($fileType != "zip.gpg") {
-	echo nl2br("Incorrect file type, please upload .zip only. \n" );
+	echo nl2br("Incorrect file type, please upload signed .zip.gpg only. \n" );
 	$goodFile = 0;
 }
 
