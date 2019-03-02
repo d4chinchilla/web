@@ -24,8 +24,9 @@ install()
     # Here, put code to verify an install file and install it
     lxterminal -e echo Hello!
     gpg -o /var/www/html/uploads/firmware.zip -d /var/www/html/uploads/firmware.zip.gpg
-    echo $?
-    if [[ $? -eq 0 ]]; then
+    RS = $?
+    echo $RS
+    if [[ $RS -eq "0" ]]; then
 	    echo Unzipping!
         unzip /var/www/html/uploads/firmware.zip -d /var/www/html/fwExtract 2>file
         echo Extracting!
