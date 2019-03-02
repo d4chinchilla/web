@@ -10,7 +10,7 @@ $filePath = fopen("chinchilla-reset","w");
 echo $filePath;
 //if(!$filePath) {echo "File Open failed";}
 echo "Writing";
-fwrite($filePath,"install\n");
+fwrite($filePath,"reset\n");
 echo "Closing";
 fclose($filePath);
 ?>
