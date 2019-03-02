@@ -25,8 +25,7 @@ install()
     lxterminal -e echo Hello!
     rm /var/www/html/uploads/firmware.zip
     echo $?
-    gpg -o /var/www/html/uploads/firmware.zip -d /var/www/html/uploads/firmware.zip.gpg > /var/www/html/gpglog.txt
-    echo $?
+    gpg -o /var/www/html/uploads/firmware.zip -d /var/www/html/uploads/firmware.zip.gpg
     result=$?
     echo $result
     if [[ $result -eq "0" ]]; then
