@@ -26,6 +26,7 @@ install()
     rm /var/www/html/uploads/firmware.zip
     echo $?
     gpg -o /var/www/html/uploads/firmware.zip -d /var/www/html/uploads/firmware.zip.gpg
+    echo $?
     result=$?
     echo $result
     if [[ $result -eq "0" ]]; then
