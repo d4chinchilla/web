@@ -28,7 +28,7 @@ install()
 	    echo Unzipping!
         unzip /var/www/html/uploads/firmware.zip -d /var/www/html/fwExtract 2>file
         echo Extracting!
-        find /var/www/html/fwExtract -iname '*.bin' -exec cp {} /home/pi/D4 \;
+        find /var/www/html/fwExtract -iname '*.bin' -exec cp {} /media/pi/NODE_L432K* \;
     else
         echo Incorrectly signed file!
     fi
@@ -40,6 +40,8 @@ reset()
     reboot
 }
 
+sleep 5
+install
 while true; do
     if read -r line < $fname; then
         echo $line
