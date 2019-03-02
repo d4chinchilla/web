@@ -5,12 +5,15 @@
  * Date: 02/03/2019
  * Time: 15:59
  */
-echo "Opening";
+//echo "Opening";
 $filePath = fopen("chinchilla-reset","w");
-echo $filePath;
+//echo $filePath;
 //if(!$filePath) {echo "File Open failed";}
-echo "Writing";
+//echo "Writing";
 fwrite($filePath,"reset\n");
-echo "Closing";
+//echo "Closing";
 fclose($filePath);
+
+header('url=index.php');
+die();
 ?>
