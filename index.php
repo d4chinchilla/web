@@ -52,6 +52,9 @@
     		<input type="file" name="fileToUpload" id="fileToUpload">
     		<input type="submit" value="Upload Firmware" name="submit">
 	</form>
+    <form>
+    <input type="button" value="Restart Pi" onclick="location='reboot.php'" />
+    </form>
     <div id="chartContainer" style="height: 200px; width: 100%;"></div>
 	<div id="ui">
             <div id="ui-radar" class="radar">

@@ -34,6 +34,12 @@ install()
     fi
 }
 
+reset()
+{
+    echo RESTARTING PI!
+    reboot
+}
+
 while true; do
     if read -r line < $fname; then
         echo $line
@@ -53,6 +59,11 @@ while true; do
             install
             start
             ;;
+        reset)
+            shutdown
+            reset
+            ;;
+
         esac
     else
         echo Sleepy
