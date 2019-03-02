@@ -52,8 +52,8 @@
     		<input type="file" name="fileToUpload" id="fileToUpload">
     		<input type="submit" value="Upload Firmware" name="submit">
 	</form>
-    <form>
-    <input type="button" value="Restart Pi" onclick="location='reboot.php'" />
+    <form action="index.php" method="post">
+        <input type="submit" name="restart" value="Restart Pi" />
     </form>
     <div id="chartContainer" style="height: 200px; width: 100%;"></div>
 	<div id="ui">
@@ -75,5 +75,22 @@
                 </table>
             </div>
         </div>
+        <?php function restartPi(){
+            if($_SERVER['REQUEST_METHOD'] == "POST" and isset($_POST['restart']))
+            {
+                restartPi();
+            }
+            function restartPi()
+            {
+                $filePath = fopen("chinchilla-reset","w");
+                //echo $filePath;
+                //if(!$filePath) {echo "File Open failed";}
+                //echo "Writing";
+                fwrite($filePath,"reset\n");
+                //echo "Closing";
+                fclose($filePath);
+            }
+        }
+        ?>
     </body>
 </html>
