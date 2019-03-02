@@ -28,7 +28,7 @@ install()
 	    echo Unzipping!
         unzip /var/www/html/uploads/firmware.zip -d /var/www/html/fwExtract 2>file
         echo Extracting!
-        find /var/www/html/fwExtract -iname '*.bin' -exec cp {} /media/pi/NODE_L432K* \;
+        find /var/www/html/fwExtract -iname '*.bin' -exec cp {} /home/pi/D4 \;
     else
         echo Incorrectly signed file!
     fi
