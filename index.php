@@ -46,7 +46,23 @@
     </head>
     <body>
         <?php ini_set('display_errors', 'On'); error_reporting(E_ALL | E_STRICT); ?>
-	<!-- <?php phpinfo();?> -->
+	    <!-- <?php phpinfo();?> -->
+        <?php
+            if($_SERVER['REQUEST_METHOD'] == "POST" and isset($_POST['restart']))
+            {
+                restartPi();
+            }
+            function restartPi()
+            {
+                $filePath = fopen("chinchilla-reset", "w");
+                //echo $filePath;
+                //if(!$filePath) {echo "File Open failed";}
+                //echo "Writing";
+                fwrite($filePath, "reset\n");
+                //echo "Closing";
+                fclose($filePath);
+            }
+        ?>
 	<form action="upload.php" method="post" enctype="multipart/form-data">
     		Select firmware to upload:
     		<input type="file" name="fileToUpload" id="fileToUpload">
@@ -75,22 +91,5 @@
                 </table>
             </div>
         </div>
-        <?php function restartPi(){
-            if($_SERVER['REQUEST_METHOD'] == "POST" and isset($_POST['restart']))
-            {
-                restartPi();
-            }
-            function restartPi()
-            {
-                $filePath = fopen("chinchilla-reset","w");
-                //echo $filePath;
-                //if(!$filePath) {echo "File Open failed";}
-                //echo "Writing";
-                fwrite($filePath,"reset\n");
-                //echo "Closing";
-                fclose($filePath);
-            }
-        }
-        ?>
     </body>
 </html>
