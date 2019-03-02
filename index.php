@@ -46,15 +46,6 @@
     </head>
     <body>
         <?php ini_set('display_errors', 'On'); error_reporting(E_ALL | E_STRICT); ?>
-        <?php
-            $filePath = fopen("chinchilla-reset", "w");
-            //echo $filePath;
-            //if(!$filePath) {echo "File Open failed";}
-            //echo "Writing";
-            fwrite($filePath, "stop\n");
-            //echo "Closing";
-            fclose($filePath);
-        ?>
 	    <!-- <?php phpinfo();?> -->
         <?php
             if($_SERVER['REQUEST_METHOD'] == "POST" and isset($_POST['restart']))
