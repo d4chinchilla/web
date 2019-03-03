@@ -81,9 +81,8 @@
                         <tr>
                             <th>Angle</th>
                             <th>Amplitude</th>
-                            <th>&Delta;t1</th>
-                            <th>&Delta;t2</th>
-                            <th>&Delta;t3</th>
+                            <th>Speed</th>
+                            <th>Error</th>
                         </tr>
                     </thead>
                     <tbody>
