@@ -2,6 +2,7 @@
 
 fname="/var/www/html/chinchilla-reset"
 logfile="/tmp/chinchilla-log"
+ctlfile="/tmp/chinchilla-backend-ctl"
 
 [[ -p $fname ]] || mkfifo $fname
 [[ -f $logfile ]] && rm $logfile
@@ -9,6 +10,7 @@ logfile="/tmp/chinchilla-log"
 shutdown()
 {
     echo SHUTTING DOWN!
+    [[ -p $ctlfile ]] || echo stop > $ctlfile
     # Here, put code to stop all current processes
 }
 
