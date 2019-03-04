@@ -41,7 +41,8 @@
                         }
                     ]
                 });
-            chart.render();
+            //chart.render();
+
             function pollFFT(data) {
                 var freq = data.fft;
                 for(var i = 0; i < freq.length; i++) {
@@ -54,16 +55,16 @@
             }
 
 
-                var radar = new Radar(document.getElementById("ui-radar"));
-                radar.init(200);
+            var radar = new Radar(document.getElementById("ui-radar"));
+            radar.init(200);
 
-                window.setInterval(function()
-                {
-                    radar.blip(Math.random() * 2 * Math.PI, Math.random(), Math.random());
-                }, 1000);
+            window.setInterval(function()
+            {
+                radar.blip(Math.random() * 2 * Math.PI, Math.random(), Math.random());
+            }, 1000);
 
 
-                $.getJSON("fft.json", pollFFT);
+            $.getJSON("fft.json", pollFFT);
 
             }
         </script>
