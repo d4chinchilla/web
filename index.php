@@ -47,7 +47,7 @@
                 var i = 1;
                 for(var key in freq) {
                     var specFreq = freq[key];
-                    FFTdata[i] = {
+                    FFTdata[i-1] = {
                         x: (i * 50),
                         y: specFreq
                     };
