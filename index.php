@@ -57,6 +57,14 @@
                 chart.render();
             }
 
+            var updateChart = function() {
+                $.getJSON("fft.json",pollFFT);
+            };
+
+            var updateInterval = 500;
+
+            updateChart();
+            setInterval(function(){updateChart()},updateInterval);
 
             var radar = new Radar(document.getElementById("ui-radar"));
             radar.init(200);
@@ -67,7 +75,7 @@
             }, 1000);
 
 
-            $.getJSON("fft.json", pollFFT);
+
 
             }
         </script>
