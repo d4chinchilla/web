@@ -43,6 +43,7 @@
             function pollFFT(data) {
                 console.log("Made it here");
                 var freq = data.fft;
+                console.log(freq);
                 for(var key in freq) {
                     var specFreq = fft.key;
                     console.log(specFreq);
