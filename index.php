@@ -45,7 +45,7 @@
                 var freq = data.fft;
                 console.log(freq);
                 for(var key in freq) {
-                    var specFreq = freq.key;
+                    var specFreq = freq[key];
                     console.log(specFreq);
                 }
                 chart.render();
