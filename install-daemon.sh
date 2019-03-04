@@ -40,7 +40,11 @@ install()
 	rm /var/www/html/fwExtract/*
         unzip /var/www/html/uploads/firmware.zip -d /var/www/html/fwExtract 2>file
         echo Extracting!
-        find /var/www/html/fwExtract -iname '*.bin' -exec cp {} /media/pi/NODE_L432K* \;
+        instdir=$(echo /media/pi/NODE_L432KC* | cut -d " " -f 1)
+        echo "$instdir"
+        [[ -d "$instdir" ]] && cp /var/www/html/fwExtract/*.bin "$instdir"
+##        cp /var/www/html/fwExtract/*.bin /media/pi/NODE_L432KC
+#       find /var/www/html/fwExtract -iname '*.bin' -exec cp {} /media/pi/NODE_L432K* \;
     else
         echo Incorrectly signed file!
     fi
