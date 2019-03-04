@@ -60,9 +60,9 @@
                     radar.blip(Math.random() * 2 * Math.PI, Math.random(), Math.random());
                 }, 1000);
 
-             while(true) {
+
                  $.getJSON("fft/chincilla-fft.json", pollFFT);
-             }
+
             }
         </script>
     </head>
