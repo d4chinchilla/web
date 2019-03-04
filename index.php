@@ -47,7 +47,7 @@
                 console.log("Made it here");
                 var freq = data.fft;
                 for(var key in freq) {
-                    FFTdata[i] = {
+                    FFTdata[key/50] = {
                         x: key,
                         y: freq[key]
                     }
