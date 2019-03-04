@@ -51,7 +51,7 @@
             if($_SERVER['REQUEST_METHOD'] == "POST" and isset($_POST['restart']))
             {
                 restartPi();
-            } else if($_SERVER['REQUEST_METHOD'] == "POST" and isset($_POST['restart']))
+            } else if($_SERVER['REQUEST_METHOD'] == "POST" and isset($_POST['calibrate']))
             {
                 calibratePi();
             }
