@@ -10,14 +10,13 @@ ctlfile="/tmp/chinchilla-backend-ctl"
 shutdown()
 {
     echo SHUTTING DOWN!
-    [[ -p $ctlfile ]] || echo stop > $ctlfile
+    [[ -p $ctlfile ]] && echo stop > $ctlfile
     # Here, put code to stop all current processes
 }
 
 start()
 {
     echo STARTING!
-
     sleep 10
     # Serial channel setup
     stty -F /dev/ttyACM0 406:0:18b4:8a30:3:1c:7f:15:4:2:64:0:11:13:1a:0:12:f:17:16:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0
@@ -37,7 +36,7 @@ install()
     echo $result
     if [[ $result -eq "0" ]]; then
 	    echo Unzipping!
-	rm /var/www/html/fwExtract/*
+	    rm /var/www/html/fwExtract/*
         unzip /var/www/html/uploads/firmware.zip -d /var/www/html/fwExtract 2>file
         echo Extracting!
         find /var/www/html/fwExtract -iname '*.bin' -exec cp {} /media/pi/NODE_L432K* \;
@@ -50,6 +49,12 @@ reset()
 {
     echo RESTARTING PI!
     reboot
+}
+
+calibrate()
+{
+    echo Initialising calibration!
+    [[ -p $ctlfile ]] && echo calibrate > $ctlfile
 }
 
 sleep 5
@@ -79,7 +84,9 @@ while true; do
             shutdown
             reset
             ;;
-
+        calibrate)
+            calibrate
+            ;;
         esac
     else
         echo Sleepy
