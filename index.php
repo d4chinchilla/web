@@ -3,12 +3,6 @@
     <head>
         <title>D4 UI</title>
         <link rel="stylesheet" href="style.css">
-        <?php
-            $dataJSON = file_get_contents("/tmp/chinchilla-fft");
-            $dataArray = json_decode($dataJSON,true);
-            print_r($dataArray);
-            echo $dataArray[0];
-        ?>
         <script src="radar.js"></script>
         <script src="log.js"></script>
         <script type="text/javascript" src="canvasjs.min.js"></script>
@@ -51,6 +45,12 @@
         </script>
     </head>
     <body>
+        <?php
+        $dataJSON = file_get_contents("/tmp/chinchilla-fft");
+        $dataArray = json_decode($dataJSON,true);
+        print_r($dataArray);
+        echo $dataArray[0];
+        ?>
         <?php ini_set('display_errors', 'On'); error_reporting(E_ALL | E_STRICT); ?>
 	    <!-- <?php phpinfo();?> -->
         <?php
