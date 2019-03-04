@@ -46,7 +46,8 @@
     </head>
     <body>
 
-        <?php ini_set('display_errors', 'On'); error_reporting(E_ALL | E_STRICT); ?>
+        <?php ini_set('display_errors', 'On'); error_reporting(E_ALL | E_STRICT | E_NOTICE
+        ); ?>
 	    <!-- <?php phpinfo();?> -->
         <?php
             $dataPath = '/var/www/chinchilla-fft';
