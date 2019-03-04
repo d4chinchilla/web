@@ -18,9 +18,8 @@ start()
 {
     echo STARTING!
 
-    # MUY IMPORTANTE! This is a hack and must die soon. Goodnight.
-    cp /home/pi/D4/signal_processing/ARM/final_binary.bin /media/pi/NODE_L432KC
     sleep 10
+    # Serial channel setup
     stty -F /dev/ttyACM0 406:0:18b4:8a30:3:1c:7f:15:4:2:64:0:11:13:1a:0:12:f:17:16:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0
     /var/www/backend &
     # Here, put code to start a new set of processes
