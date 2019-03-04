@@ -51,6 +51,9 @@
             if($_SERVER['REQUEST_METHOD'] == "POST" and isset($_POST['restart']))
             {
                 restartPi();
+            } else if($_SERVER['REQUEST_METHOD'] == "POST" and isset($_POST['restart']))
+            {
+                calibratePi();
             }
             function restartPi()
             {
@@ -62,6 +65,11 @@
                 //echo "Closing";
                 fclose($filePath);
             }
+            function calibratePi() {
+                $filePath = fopen("chinchilla-reset", "w");
+                fwrite($filePath,"calibrate\n");
+                fclose($filePath);
+            }
         ?>
 	<form action="upload.php" method="post" enctype="multipart/form-data">
     		Select firmware to upload:
@@ -70,6 +78,7 @@
 	</form>
     <form action="index.php" method="post">
         <input type="submit" name="restart" value="Restart Pi" />
+        <input type="submit" name="calibrate" value="Calibrate Device" />
     </form>
     <div id="chartContainer" style="height: 200px; width: 100%;"></div>
 	<div id="ui">
