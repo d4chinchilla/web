@@ -66,10 +66,8 @@
                 radar.blip(Math.random() * 2 * Math.PI, Math.random(), Math.random());
             }, 1000);
 
-            while(true) {
-                $.getJSON("fft.json", pollFFT);
-            }
 
+            $.getJSON("fft.json", pollFFT);
 
             }
         </script>
