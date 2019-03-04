@@ -50,7 +50,7 @@
                     FFTdata[i] = {
                         x: (i * 50),
                         y: specFreq
-                    }
+                    };
                     i++
                 }
                 console.log(FFTdata);
