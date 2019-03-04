@@ -63,7 +63,7 @@
                 $.getJSON("fft.json",pollFFT);
             };
 
-            var updateInterval = 100;
+            var updateInterval = 50;
 
             updateChart();
             setInterval(function(){updateChart()},updateInterval);
