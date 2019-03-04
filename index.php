@@ -45,15 +45,16 @@
         </script>
     </head>
     <body>
-        <?php
-        $dataPath = '/var/www/chinchilla-fft';
-        $dataJSON = file_get_contents($dataPath);
-        $dataArray = json_decode($dataJSON,true);
-        print_r($dataArray);
-        echo $dataArray[0]["fft"];
-        ?>
+
         <?php ini_set('display_errors', 'On'); error_reporting(E_ALL | E_STRICT); ?>
 	    <!-- <?php phpinfo();?> -->
+        <?php
+            $dataPath = '/var/www/chinchilla-fft';
+            $dataJSON = file_get_contents($dataPath);
+            $dataArray = json_decode($dataJSON,true);
+            //print_r($dataArray);
+            echo $dataArray[0]["fft"];
+        ?>
         <?php
             if($_SERVER['REQUEST_METHOD'] == "POST" and isset($_POST['restart']))
             {
