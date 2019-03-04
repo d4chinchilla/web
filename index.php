@@ -63,7 +63,7 @@
                 }, 1000);
 
 
-                $.getJSON("/var/www/fft.json", pollFFT);
+                $.getJSON("fft.json", pollFFT);
 
             }
         </script>
