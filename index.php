@@ -52,6 +52,7 @@
                         y: specFreq
                     }
                 }
+                console.log(FFTdata);
                 chart.render();
             }
 
