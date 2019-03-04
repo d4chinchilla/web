@@ -63,7 +63,7 @@
                 }, 1000);
 
 
-                $.getJSON("/var/www/chincilla-fft.json", pollFFT);
+                $.getJSON("/var/www/fft.json", pollFFT);
 
             }
         </script>
