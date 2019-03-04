@@ -25,7 +25,7 @@
                     axisX: {
                         logarithmic: true,
                         title: "Frequency (Hz)",
-                        minimum: 1,
+                        minimum: 50,
                         maximum: 2000
                     },
                     axisY: {
