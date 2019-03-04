@@ -49,7 +49,7 @@
                     var specFreq = freq[key];
                     FFTdata[i] = {
                         x: (i*50),
-                        y: freq[key]
+                        y: specFreq
                     }
                 }
                 chart.render();
