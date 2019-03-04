@@ -30,6 +30,8 @@
                     },
                     axisY: {
                         title: "Magnitude (dB)"
+                        minimum: 0,
+                        maximum: 15000
                     },
                     data: [
                         {
@@ -61,7 +63,7 @@
                 $.getJSON("fft.json",pollFFT);
             };
 
-            var updateInterval = 500;
+            var updateInterval = 100;
 
             updateChart();
             setInterval(function(){updateChart()},updateInterval);
