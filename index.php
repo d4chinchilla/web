@@ -43,7 +43,8 @@
             function pollFFT(data) {
                 console.log("Made it here");
                 var freq = data.fft;
-                console.log(freq);
+                var fifty = freq.50.00;
+                console.log(fifty);
                 for(key in freq) {
                     FFTdata[key/50] = {
                         x: key,
