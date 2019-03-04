@@ -46,8 +46,7 @@
             function pollFFT(data) {
                 console.log("Made it here");
                 var freq = data.fft;
-                console.log(freq[1]);
-                console.log(data.fft);
+                console.log(data.fft[1]);
                 for(var i = 0; i < freq.length; i++) {
                     FFTdata[i] = {
                         x: freq[i][0],
