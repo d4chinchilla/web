@@ -3,12 +3,18 @@
     <head>
         <title>D4 UI</title>
         <link rel="stylesheet" href="style.css">
+
+
         <script src="radar.js"></script>
         <script src="log.js"></script>
+
         <script type="text/javascript" src="canvasjs.min.js"></script>
         <script type="text/javascript">
             window.onload = function()
             {
+
+                var FFTdata = [];
+
                 var chart = new CanvasJS.Chart("chartContainer", {
                     interactivityEnabled: true,
                     title: {
@@ -33,7 +39,19 @@
                         }
                     ]
                 });
+
+            function pollFFT(data) {
+                var freq = data.fft;
+                for(var i = 0; i < freq.length; i++) {
+                    FFTdata[i] = {
+                        x: freq[i][0],
+                        y: freq[i][1]
+                    }
+                }
                 chart.render();
+            }
+
+
                 var radar = new Radar(document.getElementById("ui-radar"));
                 radar.init(200);
 
@@ -41,13 +59,16 @@
                 {
                     radar.blip(Math.random() * 2 * Math.PI, Math.random(), Math.random());
                 }, 1000);
+
+             while(true) {
+                 $.getJSON("fft/chincilla-fft.json", pollFFT);
+             }
             }
         </script>
     </head>
     <body>
 
-        <?php ini_set('display_errors', 'On'); error_reporting(E_ALL | E_STRICT | E_NOTICE
-        ); ?>
+        <?php ini_set('display_errors', 'On'); error_reporting(E_ALL | E_STRICT | E_NOTICE); ?>
 	    <!-- <?php phpinfo();?> -->
         <?php
             $dataPath = '/var/www/chinchilla-fft';
