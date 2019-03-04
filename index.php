@@ -44,14 +44,14 @@
                 console.log("Made it here");
                 var freq = data.fft;
                 console.log(freq);
+                var i = 1;
                 for(var key in freq) {
-                    i = 1;
                     var specFreq = freq[key];
                     FFTdata[i] = {
                         x: (i * 50),
                         y: specFreq
                     };
-                    i++
+                    i++;
                 }
                 console.log(FFTdata);
                 chart.render();
