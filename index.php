@@ -41,7 +41,7 @@
                         }
                     ]
                 });
-
+            chart.render();
             function pollFFT(data) {
                 var freq = data.fft;
                 for(var i = 0; i < freq.length; i++) {
