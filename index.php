@@ -44,7 +44,8 @@
                 console.log("Made it here");
                 var freq = data.fft;
                 for(var key in freq) {
-                    console.log(freq.key);
+                    var specFreq = fft.key;
+                    console.log(specFreq);
                 }
                 chart.render();
             }
