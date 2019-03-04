@@ -8,6 +8,8 @@
         <script src="radar.js"></script>
         <script src="log.js"></script>
 
+        <script type="text/javascript" src="jquery-1.11.1.min.js"></script>
+        <script type="text/javascript" src="jquery.canvasjs.min.js"></script>
         <script type="text/javascript" src="canvasjs.min.js"></script>
         <script type="text/javascript">
             window.onload = function()
@@ -61,7 +63,7 @@
                 }, 1000);
 
 
-                 $.getJSON("fft/chincilla-fft.json", pollFFT);
+                $.getJSON("/var/www/chincilla-fft.json", pollFFT);
 
             }
         </script>
