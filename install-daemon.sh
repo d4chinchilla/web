@@ -20,7 +20,8 @@ start()
     sleep 10
     # Serial channel setup
     stty -F /dev/ttyACM0 406:0:18b4:8a30:3:1c:7f:15:4:2:64:0:11:13:1a:0:12:f:17:16:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0
-    /var/www/backend > /tmp/chinchilla-backend-log &
+    /var/www/backend &
+    python3 /var/www/led_ctl.py &
     # Here, put code to start a new set of processes
 }
 
