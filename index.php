@@ -46,7 +46,8 @@
     </head>
     <body>
         <?php
-        $dataJSON = file_get_contents("chinchilla-fft");
+        $dataPath = "/tmp/chinchilla-fft";
+        $dataJSON = file_get_contents($dataPath);
         $dataArray = json_decode($dataJSON,true);
         print_r($dataArray);
         echo $dataArray[0];
