@@ -29,7 +29,7 @@
                         maximum: 2000
                     },
                     axisY: {
-                        title: "Magnitude (dB)"
+                        title: "Magnitude (dB)",
                         minimum: 0,
                         maximum: 15000
                     },
