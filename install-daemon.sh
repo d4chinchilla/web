@@ -7,6 +7,18 @@ ctlfile="/tmp/chinchilla-backend-ctl"
 [[ -p $fname ]] || mkfifo $fname
 [[ -f $logfile ]] && rm $logfile
 
+hack_file()
+{
+    while true; do
+        if [[ -f /tmp/chinchilla-fft ]]; then
+            cp /tmp/chinchilla-fft /var/www/html/fft.json
+            cp /tmp/chinchilla-sounds /var/www/html/sounds
+        fi
+        sleep 0.1
+    done
+}
+hack_file &
+
 shutdown()
 {
     echo SHUTTING DOWN!
