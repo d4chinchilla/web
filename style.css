@@ -12,7 +12,7 @@
 
 /* The radial lines on the radar */
 .radar > .radial {
-    background-color: #fff;
+    background-color: #ffffff;
     height: 1px;
     position: absolute;
 }
