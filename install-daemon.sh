@@ -16,6 +16,8 @@ ctlfile="/tmp/chinchilla-backend-ctl"
 #If log exists, remove log file
 [[ -f $logfile ]] && rm $logfile
 
+
+#Move temp files to web-server root so server can utilise the files (permission problems otherwise)
 hack_file()
 {
     while true; do
@@ -23,9 +25,11 @@ hack_file()
             cp /tmp/chinchilla-fft /var/www/html/fft.json
             cp /tmp/chinchilla-sounds /var/www/html/sounds
         fi
-        sleep 0.1
+        #Move every 100ms
+        sleep 0.05
     done
 }
+#Run in background on boot
 hack_file &
 
 shutdown()
