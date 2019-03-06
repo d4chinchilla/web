@@ -19,6 +19,7 @@ function Radar(elem)
         this.radius = radius
         circle_style(elem, radius);
 
+        /* Draw the radial and circular lines on the radar */
         for (var angle=0; angle < Math.PI - 0.01; angle += Math.PI / 6)
         {
             this.add_radial(angle);
@@ -47,8 +48,13 @@ function Radar(elem)
         var elem = document.createElement("div");
         elem.className = "radial";
 
+	    /* To create the line we use a wide div, and rotate it */
+
+        /* Position the div halfway down the radar */
         elem.style.top   = this.radius.toString() + "px";
-        elem.style.width = (2 * this.radius.toString()) + "px";
+        /* Set the width to the diameter of the radar */
+        elem.style.width = (2 * this.radius).toString() + "px";
+        /* Rotate the element appropriately */
         elem.style.transform = "rotate(" + angle.toString() + "rad)";
 
         this.elem.appendChild(elem);
@@ -61,7 +67,12 @@ function Radar(elem)
         var elem = document.createElement("div");
         elem.className = "circular";
 
+        /* The circular marks on the radar are done with circular borders around divs */
+
+	    /* Make the div a circular shape */
         circle_style(elem, radius * this.radius);
+
+        /* Position the div so that it is in the centre of the radar */
         elem.style.top  = ((1 - radius) * this.radius).toString() + "px";
         elem.style.left = ((1 - radius) * this.radius).toString() + "px";
 
@@ -85,6 +96,7 @@ function Blip(radar)
         this.elem.className = "blip";
         this.radius = this.radar.radius * size / 25;
 
+        /* Make the blip a circle and position it */
         circle_style(this.elem, this.radius);
         this.elem.style.left = this.get_xpos(angle, radius, size).toString() + "px";
         this.elem.style.top  = this.get_ypos(angle, radius, size).toString() + "px";
@@ -92,6 +104,7 @@ function Blip(radar)
         this.radar.elem.appendChild(this.elem);
         var self = this;
 
+        /* Set the blip to fade and then die */
         window.setTimeout(function () { self.fade() }, 1000);
         window.setTimeout(function () { self.kill() }, 4000);
 
