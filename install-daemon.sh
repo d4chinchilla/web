@@ -25,7 +25,7 @@ hack_file()
             cp /tmp/chinchilla-fft /var/www/html/fft.json
             cp /tmp/chinchilla-sounds /var/www/html/sounds
         fi
-        #Move every 100ms
+        #Move every 50ms
         sleep 0.05
     done
 }
