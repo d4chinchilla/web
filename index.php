@@ -93,7 +93,7 @@ as well as providing controls for uploading new firmware and calibrating the dev
             //Add a new radar blip every second
             window.setInterval(function()
             {
-                Requestor.request_sounds();
+                req_radar.request_sounds();
             }, 50);
 
 
