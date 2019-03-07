@@ -42,11 +42,11 @@ function Requestor()
     this.on_sounds = function()
     {
         /* Get the text of the file */
-        var text  = this.req.responseTxt;
+        var text  = this.req.responseText;
         /* Split up the lines */
-        var lines = this.text.split("\n");
+        var lines = text.split("\n");
 
-        /* Each line contains JSON, so we iterate over eacg one */
+        /* Each line contains JSON, so we iterate over each one */
         for (line of lines)
         {
             /* Individually parse each line */
