@@ -13,6 +13,7 @@ as well as providing controls for uploading new firmware and calibrating the dev
 <!-- Load in radar and log javascript for radar display elements-->
         <script src="radar.js"></script>
         <script src="log.js"></script>
+        <script src="requestor.js"></script>
 
 <!--    Load in JQuery and Canvas script for FFT display-->
         <script type="text/javascript" src="jquery-1.11.1.min.js"></script>
@@ -86,14 +87,14 @@ as well as providing controls for uploading new firmware and calibrating the dev
             setInterval(function(){updateChart()},updateInterval);
 
             //Initialise radar display
-            var radar = new Radar(document.getElementById("ui-radar"));
-            radar.init(200);
+            var req_radar = new Requestor();
+            req_radar.radar.init(200);
 
             //Add a new radar blip every second
             window.setInterval(function()
             {
-                radar.blip(Math.random() * 2 * Math.PI, Math.random(), Math.random());
-            }, 1000);
+                Requestor.request_sounds();
+            }, 50);
 
 
 
