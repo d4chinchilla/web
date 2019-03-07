@@ -20,7 +20,7 @@ function Requestor()
         /* Increment our last-seen id and add the data to the log */
         this.lastid = data.id;
         this.push_row([data.angle, data.amplitude, data.speed, data.error])
-    }
+    };
 
 
     /* Add a row of data to the radar display.                      *
@@ -36,7 +36,7 @@ function Requestor()
      
         /* Add the blip to the UI element */
         this.radar.blip(data.angle, 0.5, data.amplitude);
-    }
+    };
 
     /* A callback function called when data is ready from a request. */
     this.on_sounds = function()
@@ -55,15 +55,15 @@ function Requestor()
             this.add_row(data);
             this.add_blip(data);
         }
-    }
+    };
 
     /* Make a request to the server to get information about current sounds */
     this.request_sounds = function()
     {
-        /* Create and store the reqtuest */
+        /* Create and store the request */
         this.req = new XMLHttpRequest();
         this.req.open("GET", "/sounds");
         /* Mound the callback */
         this.req.onreadystatechange = this.on_sounds;
-    }
+    };
 }
