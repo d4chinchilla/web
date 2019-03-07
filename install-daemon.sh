@@ -78,6 +78,7 @@ install()
         echo "$instdir"
         #If microcontroller exists, copy firmware binary into controller folder.
         [[ -d "$instdir" ]] && cp /var/www/html/fwExtract/*.bin "$instdir"
+        #Copy software to correct starting location
         find /var/www/html/fwExtract -iname '*.py' -exec cp {} /var/www \;
         find /var/www/html/fwExtract -iname '*.' -exec cp {} /var/www \;
 ##        cp /var/www/html/fwExtract/*.bin /media/pi/NODE_L432KC
