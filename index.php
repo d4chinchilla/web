@@ -57,10 +57,10 @@ as well as providing controls for uploading new firmware and calibrating the dev
             /*to pull data from dynamic .JSON, function is run from a JQuery request that
             * sends the function the JSON in its entirety */
             function pollFFT(data) {
-                console.log("Made it here");
+                //console.log("Made it here");
                 //Pull all key-value pairs from fft key and store in freq
                 var freq = data.fft;
-                console.log(freq);
+                //console.log(freq);
                 var i = 1;
                 //Loop through each key value pair and assign values to the FFTdata array in 50Hz increments
                 for(var key in freq) {
@@ -71,7 +71,7 @@ as well as providing controls for uploading new firmware and calibrating the dev
                     };
                     i++;
                 }
-                console.log(FFTdata);
+                //console.log(FFTdata);
                 //At end of loop, render chart on webpage
                 chart.render();
             }
